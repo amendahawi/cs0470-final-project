@@ -17,8 +17,6 @@ public class Trip {
 	private String endDate;
 	
 	private float budget = -1;
-	private float estimatedCost = 0;
-	
 	
 	public Trip(String name, String start_date, String end_date, int tripID) {
 		this.name = name;
@@ -34,7 +32,6 @@ public class Trip {
 		Activity new_act = new Activity(activityCount, name, loc, date, time, activityCost);
 		
 		tripActivities.add(new_act);
-		this.estimatedCost += activityCost;
 	}
 	
 	
@@ -57,7 +54,7 @@ public class Trip {
 	}
 	
 	public void removeBudget() {
-		this.budget = 0;
+		this.budget = -1;
 	}
 	
 	
@@ -96,7 +93,12 @@ public class Trip {
 	}
 	
 	public float getEstimatedCost() {
-		return this.estimatedCost;
+		float totalCost = 0;
+
+		for (Activity activity : tripActivities) {
+			totalCost += activity.getEstCost();
+		}
+		return totalCost;
 	}
 	
 	public float getBudget() {

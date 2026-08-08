@@ -358,7 +358,7 @@ public class TravelCLI {
 	}
 	
 	public static void removeTripBudget(Trip trip) {
-		trip.setBudget(-1);
+		trip.removeBudget();
 	}
 
 	
