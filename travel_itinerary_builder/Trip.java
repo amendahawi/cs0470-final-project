@@ -88,14 +88,17 @@ public class Trip {
 		return tripActivities.size();
 	}
 	
-	public float getEstimatedCost() {
-		
+	public float calculateTripCost() {
+		return sumActivityCosts();
+	}
+	
+	private float sumActivityCosts() {
 		float totalCost = 0;
-
+	
 		for (Activity activity : tripActivities) {
-			totalCost += activity.getEstCost();
+			totalCost += activity.getActivityCost();
 		}
-		
+	
 		return totalCost;
 	}
 	

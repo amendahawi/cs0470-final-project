@@ -8,17 +8,17 @@ public class Activity {
 	private String activityLocation;
 	private String date;
 	private String time;
-	private float estCost;
+	private float activityCost;
 	
 	
 	// Constructors ------------------------------
-	public Activity(int activityID, String activityName, String loc, String date, String time, float estCost) {
+	public Activity(int activityID, String activityName, String loc, String date, String time, float activityCost) {
 		this.activityID = activityID;
 		this.activityName = activityName;
 		this.activityLocation = loc;
 		this.date = date;
 		this.time = time;
-		this.estCost = estCost;
+		this.activityCost = activityCost;
 	}
 	
 	
@@ -37,8 +37,8 @@ public class Activity {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public void setEstCost(float estCost) {
-		this.estCost = estCost;
+	public void setActivityCost(float activityCost) {
+		this.activityCost = activityCost;
 	}
 	
 	
@@ -63,8 +63,8 @@ public class Activity {
 		return this.time;
 	}
 	
-	public float getEstCost() {
-		return this.estCost;
+	public float getActivityCost() {
+		return this.activityCost;
 	}
 
 }

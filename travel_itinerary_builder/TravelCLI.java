@@ -38,8 +38,8 @@ public class TravelCLI {
 		    System.out.printf("Budget: $%.2f%n", t.getBudget());
 		}
 
-		if (t.getEstimatedCost() > 0) {
-		    System.out.printf("Estimated Cost: $%.2f%n", t.getEstimatedCost());
+		if (t.calculateTripCost() > 0) {
+		    System.out.printf("Estimated Cost: $%.2f%n", t.calculateTripCost());
 		}
 	}
 	
@@ -69,7 +69,7 @@ public class TravelCLI {
 			System.out.println("Location: " + a.getLocation());
 			System.out.println("Date: " + a.getDate());
 			System.out.println("Time: " + a.getTime());
-			System.out.printf("Estimated Cost: $%.2f%n", a.getEstCost());
+			System.out.printf("Estimated Cost: $%.2f%n", a.getActivityCost());
 			
 			if (i < trip.getActivityCount() - 1) {
 				System.out.println();
@@ -146,7 +146,7 @@ public class TravelCLI {
 		
 		trip.addNewActivity(name, loc, date, time, activityCost);
 		System.out.println("\nActivity added successfully.");
-		System.out.println("Trip \"" + trip.getTripName().toUpperCase() + "\" estimated cost: $" + trip.getEstimatedCost());
+		System.out.println("Trip \"" + trip.getTripName().toUpperCase() + "\" estimated cost: $" + trip.calculateTripCost());
 		
 	}
 	
@@ -465,7 +465,7 @@ public class TravelCLI {
 				System.out.println("Success! Returning...");
 			}
 			else if (choice == 5) {
-				editActivityEstCost(activity);
+				editActivityCost(activity);
 				System.out.println("Success! Returning...");
 			}
 			else if (choice == 6) {
@@ -505,13 +505,12 @@ public class TravelCLI {
 		activity.setTime(new_time);
 	}
 	
-	public static void editActivityEstCost(Activity activity) {
-		
+	public static void editActivityCost(Activity activity) {
 		printSeparator();
-		System.out.print("Enter new activity estimated cost: ");
+		System.out.print("Enter new activity cost: ");
 		float new_cost = scn.nextFloat();
 		scn.nextLine();
-		activity.setEstCost(new_cost);
+		activity.setActivityCost(new_cost);
 	}
 	
 	
