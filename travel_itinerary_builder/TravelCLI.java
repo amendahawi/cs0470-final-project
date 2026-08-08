@@ -244,7 +244,7 @@ public class TravelCLI {
 		printSeparator();
 		System.out.print("Enter new activity location: ");
 		String new_loc = scn.nextLine();
-		activity.setDate(new_loc);
+		activity.setLocation(new_loc);
 	}
 	
 	public static void editActivityDate(Activity activity) {
